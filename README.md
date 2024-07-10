@@ -203,9 +203,9 @@ Project Link: [https://github.com/vugn/bukukita](https://github.com/vugn/bukukit
 [issues-shield]: https://img.shields.io/github/issues/vugn/bukukita.svg?style=for-the-badge
 [issues-url]: https://github.com/vugn/bukukita/issues
 [license-shield]: https://img.shields.io/github/license/vugn/bukukita.svg?style=for-the-badge
-[license-url]: https://github.com/vugn/bukukita/blob/master/LICENSE.txt
+[license-url]: https://github.com/vugn/bukukita/blob/main/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[linkedin-url]: https://linkedin.com/in/gustiranda
 [product-screenshot]: assets/screenshot.png
 [Php.net]: https://img.shields.io/badge/Php-AEB2D5?style=for-the-badge&logo=php&logoColor=white
 [Php-url]: https://php.net
