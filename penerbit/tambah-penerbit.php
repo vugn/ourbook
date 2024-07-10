@@ -33,7 +33,7 @@ include '../template/header.php';
 
                         <div class=" form-group mb-3">
                             <label>Kota penerbit</label>
-                            <input type="text" name="kota_penerbit" placeholder="Masukkan kota penerbit" class="form-control" required>
+                            <input type="text" name="kota_penerbit" placeholder="Masukkan kota penerbit" class="form-control" maxlength="10" required>
                         </div>
 
                         <button type=" submit" class="btn btn-primary">Simpan</button>

@@ -1,31 +1,25 @@
 <?php
-
 include '../koneksi.php';
 include '../template/header.php';
-
-
 $kode_buku = $_GET['kode_buku'];
 
-$query = "SELECT * FROM master_buku WHERE kode_buku = ? LIMIT 1";
+$query = "SELECT master_buku.*, kategori.kode_kategori, pengarang.kode_pengarang, penerbit.kode_penerbit FROM master_buku
+          LEFT JOIN kategori ON master_buku.kategori = kategori.kode_kategori
+          LEFT JOIN pengarang ON master_buku.pengarang = pengarang.kode_pengarang
+          LEFT JOIN penerbit ON master_buku.penerbit = penerbit.kode_penerbit
+          WHERE kode_buku = ? LIMIT 1";
 $stmt = mysqli_prepare($conn, $query);
-
 mysqli_stmt_bind_param($stmt, "s", $kode_buku);
-
 mysqli_stmt_execute($stmt);
-
 $result = mysqli_stmt_get_result($stmt);
-
 $row = mysqli_fetch_array($result);
 
-// Fetch 'kategori' options
 $kategoriQuery = "SELECT kode_kategori, nama_kategori FROM kategori ORDER BY nama_kategori";
 $kategoriResult = mysqli_query($conn, $kategoriQuery);
 
-// Fetch 'pengarang' options
 $pengarangQuery = "SELECT kode_pengarang, nama_pengarang FROM pengarang ORDER BY nama_pengarang";
 $pengarangResult = mysqli_query($conn, $pengarangQuery);
 
-// Fetch 'penerbit' options
 $penerbitQuery = "SELECT kode_penerbit, nama_penerbit FROM penerbit ORDER BY nama_penerbit";
 $penerbitResult = mysqli_query($conn, $penerbitQuery);
 ?>
@@ -61,7 +55,7 @@ $penerbitResult = mysqli_query($conn, $penerbitQuery);
                             <label for="kategori">Kategori:</label>
                             <select name="kategori" id="kategori" class="form-control">
                                 <?php while ($kategoriRow = mysqli_fetch_assoc($kategoriResult)) : ?>
-                                    <option value="<?php echo $kategoriRow['nama_kategori']; ?>" <?php if ($kategoriRow['nama_kategori'] == $row['kategori']) echo 'selected'; ?>>
+                                    <option value="<?php echo $kategoriRow['kode_kategori']; ?>" <?php if ($kategoriRow['kode_kategori'] == $row['kategori']) echo 'selected'; ?>>
                                         <?php echo htmlspecialchars($kategoriRow['nama_kategori']); ?>
                                     </option>
                                 <?php endwhile; ?>
@@ -72,7 +66,7 @@ $penerbitResult = mysqli_query($conn, $penerbitQuery);
                             <label for="pengarang">Pengarang:</label>
                             <select name="pengarang" id="pengarang" class="form-control">
                                 <?php while ($pengarangRow = mysqli_fetch_assoc($pengarangResult)) : ?>
-                                    <option value="<?php echo $pengarangRow['nama_pengarang']; ?>" <?php if ($pengarangRow['nama_pengarang'] == $row['pengarang']) echo 'selected'; ?>>
+                                    <option value="<?php echo $pengarangRow['kode_pengarang']; ?>" <?php if ($pengarangRow['kode_pengarang'] == $row['pengarang']) echo 'selected'; ?>>
                                         <?php echo htmlspecialchars($pengarangRow['nama_pengarang']); ?>
                                     </option>
                                 <?php endwhile; ?>
@@ -84,7 +78,7 @@ $penerbitResult = mysqli_query($conn, $penerbitQuery);
                             <label for="penerbit">Penerbit:</label>
                             <select name="penerbit" id="penerbit" class="form-control">
                                 <?php while ($penerbitRow = mysqli_fetch_assoc($penerbitResult)) : ?>
-                                    <option value="<?php echo $penerbitRow['nama_penerbit']; ?>" <?php if ($penerbitRow['nama_penerbit'] == $row['penerbit']) echo 'selected'; ?>>
+                                    <option value="<?php echo $penerbitRow['kode_penerbit']; ?>" <?php if ($penerbitRow['kode_penerbit'] == $row['penerbit']) echo 'selected'; ?>>
                                         <?php echo htmlspecialchars($penerbitRow['nama_penerbit']); ?>
                                     </option>
                                 <?php endwhile; ?>

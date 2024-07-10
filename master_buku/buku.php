@@ -7,14 +7,27 @@ $keyword = '';
 
 if (isset($_GET['q'])) {
     $keyword = $_GET['q'];
-    // Prepare a statement with placeholders for each field you want to search through
-    $stmt = $conn->prepare("SELECT * FROM master_buku WHERE judul_buku LIKE CONCAT('%', ?, '%') OR kategori LIKE CONCAT('%', ?, '%') OR pengarang LIKE CONCAT('%', ?, '%') OR penerbit LIKE CONCAT('%', ?, '%') OR tahun LIKE CONCAT('%', ?, '%') OR deskripsi LIKE CONCAT('%', ?, '%') OR harga LIKE CONCAT('%', ?, '%')");
-    // Bind the same keyword to each placeholder
+    // Adjust the SQL query to join with kategori, pengarang, and penerbit tables and select based on IDs
+    $stmt = $conn->prepare("SELECT master_buku.*, kategori.nama_kategori, pengarang.nama_pengarang, penerbit.nama_penerbit FROM master_buku 
+                            LEFT JOIN kategori ON master_buku.kategori = kategori.kode_kategori
+                            LEFT JOIN pengarang ON master_buku.pengarang = pengarang.kode_pengarang 
+                            LEFT JOIN penerbit ON master_buku.penerbit = penerbit.kode_penerbit 
+                            WHERE judul_buku LIKE CONCAT('%', ?, '%') 
+                            OR kategori.kode_kategoriLIKE CONCAT('%', ?, '%') 
+                            OR pengarang.kode_pengarang LIKE CONCAT('%', ?, '%') 
+                            OR penerbit.kode_penerbit LIKE CONCAT('%', ?, '%') 
+                            OR tahun LIKE CONCAT('%', ?, '%') 
+                            OR deskripsi LIKE CONCAT('%', ?, '%') 
+                            OR harga LIKE CONCAT('%', ?, '%')");
     $stmt->bind_param("sssssss", $keyword, $keyword, $keyword, $keyword, $keyword, $keyword, $keyword);
     $stmt->execute();
     $query = $stmt->get_result();
 } else {
-    $query = mysqli_query($conn, "SELECT * FROM master_buku");
+    // Adjust the default query to include joins if you want to display names instead of IDs
+    $query = mysqli_query($conn, "SELECT master_buku.*, kategori.nama_kategori, pengarang.nama_pengarang, penerbit.nama_penerbit FROM master_buku 
+                                  LEFT JOIN kategori ON master_buku.kategori = kategori.kode_kategori
+                                  LEFT JOIN pengarang ON master_buku.pengarang = pengarang.kode_pengarang 
+                                  LEFT JOIN penerbit ON master_buku.penerbit = penerbit.kode_penerbit");
 }
 
 ?>
@@ -79,17 +92,20 @@ if (isset($_GET['q'])) {
                             while ($row = mysqli_fetch_array($query)) :
                             ?>
                                 <tr>
-                                    <td><?php echo $row['kode_buku'] ?></td>
-                                    <td><?php echo $row['judul_buku'] ?></td>
-                                    <td><?php echo $row['kategori'] ?></td>
-                                    <td><?php echo $row['pengarang'] ?></td>
-                                    <td><?php echo $row['penerbit'] ?></td>
-                                    <td><?php echo $row['tahun'] ?></td>
-                                    <td><?php echo $row['deskripsi'] ?></td>
-                                    <td><?php echo $row['harga'] ?></td>
+                                    <td><?php echo $row['kode_buku']; ?></td>
+                                    <td><?php echo $row['judul_buku']; ?></td>
+                                    <td><?php echo $row['nama_kategori'];
+                                        ?></td>
+                                    <td><?php echo $row['nama_pengarang'];
+                                        ?></td>
+                                    <td><?php echo $row['nama_penerbit'];
+                                        ?></td>
+                                    <td><?php echo $row['tahun']; ?></td>
+                                    <td><?php echo $row['deskripsi']; ?></td>
+                                    <td><?php echo $row['harga']; ?></td>
                                     <td class="text-center">
-                                        <a href="edit-buku.php?kode_buku=<?php echo $row['kode_buku'] ?>" class="btn btn-sm btn-primary">Edit</a>
-                                        <a href="hapus-buku.php?kode_buku=<?php echo $row['kode_buku'] ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                        <a href="edit-buku.php?kode_buku=<?php echo $row['kode_buku']; ?>" class="btn btn-sm btn-primary">Edit</a>
+                                        <a href="hapus-buku.php?kode_buku=<?php echo $row['kode_buku']; ?>" class="btn btn-sm btn-danger">Hapus</a>
                                     </td>
                                 </tr>
                             <?php endwhile ?>

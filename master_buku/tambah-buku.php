@@ -48,7 +48,7 @@ $penerbitResult = mysqli_query($conn, $penerbitQuery);
                             <label for="kategori">Kategori:</label>
                             <select name="kategori" id="kategori" class="form-control">
                                 <?php while ($row = mysqli_fetch_assoc($kategoriResult)) : ?>
-                                    <option value="<?php echo $row['nama_kategori']; ?>"><?php echo $row['nama_kategori']; ?></option>
+                                    <option value="<?php echo $row['kode_kategori']; ?>"><?php echo $row['nama_kategori']; ?></option>
                                 <?php endwhile; ?>
                             </select>
                         </div>
@@ -58,7 +58,7 @@ $penerbitResult = mysqli_query($conn, $penerbitQuery);
                             <label for="pengarang">Pengarang:</label>
                             <select name="pengarang" id="pengarang" class="form-control">
                                 <?php while ($row = mysqli_fetch_assoc($pengarangResult)) : ?>
-                                    <option value="<?php echo $row['nama_pengarang']; ?>"><?php echo $row['nama_pengarang']; ?></option>
+                                    <option value="<?php echo $row['kode_pengarang']; ?>"><?php echo $row['nama_pengarang']; ?></option>
                                 <?php endwhile; ?>
                             </select>
                         </div>
@@ -68,7 +68,7 @@ $penerbitResult = mysqli_query($conn, $penerbitQuery);
                             <label for="penerbit">Penerbit:</label>
                             <select name="penerbit" id="penerbit" class="form-control">
                                 <?php while ($row = mysqli_fetch_assoc($penerbitResult)) : ?>
-                                    <option value="<?php echo $row['nama_penerbit']; ?>"><?php echo $row['nama_penerbit']; ?></option>
+                                    <option value="<?php echo $row['kode_penerbit']; ?>"><?php echo $row['nama_penerbit']; ?></option>
                                 <?php endwhile; ?>
                             </select>
                         </div>
