@@ -33,10 +33,10 @@
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a> -->
 
-<h3 align="center">Buku Kita</h3>
+<h3 align="center">Our Book</h3>
 
   <p align="center">
-    Buku Kita is an open-source platform designed to cater to book enthusiasts and readers looking for a comprehensive catalog of books across various genres. The project aims to provide a user-friendly interface for exploring, reviewing, and managing a vast collection of books, including details such as titles, authors, publication years, and genres. It serves as a valuable resource for readers to discover new books and for authors to showcase their work. With features like dynamic search across all fields, detailed book descriptions, and user-contributed reviews, Buku Kita strives to create a vibrant community of readers and writers. The platform is built with the goal of making literature more accessible and fostering a love for reading in people of all ages.
+    Our Book is an open-source platform designed to cater to book enthusiasts and readers looking for a comprehensive catalog of books across various genres. The project aims to provide a user-friendly interface for exploring, reviewing, and managing a vast collection of books, including details such as titles, authors, publication years, and genres. It serves as a valuable resource for readers to discover new books and for authors to showcase their work. With features like dynamic search across all fields, detailed book descriptions, and user-contributed reviews, Our Book strives to create a vibrant community of readers and writers. The platform is built with the goal of making literature more accessible and fostering a love for reading in people of all ages.
     <br />
     <a href="https://github.com/vugn/bukukita"><strong>Explore the docs »</strong></a>
     <br />
@@ -79,11 +79,11 @@
 
 ## About The Project
 
-[![Buku Kita Screenshot][product-screenshot]](https://example.com)
+[![Our Book Screenshot][product-screenshot]](https://example.com)
 
-# About Buku Kita
+# About Our Book
 
-Buku Kita is an innovative digital library and community platform dedicated to book lovers and readers worldwide. Our mission is to democratize access to books of all genres and foster a global community where authors and readers can connect and share their passion for literature. The platform offers an extensive catalog of books, detailed information about each title, including author, genre, publication year, and user reviews, making it easier for users to find and discover new books that match their interests.
+Our Book is an innovative digital library and community platform dedicated to book lovers and readers worldwide. Our mission is to democratize access to books of all genres and foster a global community where authors and readers can connect and share their passion for literature. The platform offers an extensive catalog of books, detailed information about each title, including author, genre, publication year, and user reviews, making it easier for users to find and discover new books that match their interests.
 
 Key Features:
 
@@ -93,7 +93,7 @@ Key Features:
 - **Author Profiles**: Discover more about your favorite authors and their complete works.
 - **Community Engagement**: Join discussions, participate in book clubs, and connect with fellow book enthusiasts.
 
-Buku Kita is more than just a digital library; it's a vibrant community of readers and writers sharing their love for literature. Whether you're a casual reader, a literary scholar, or an author looking to reach a wider audience, Buku Kita welcomes you to join our growing community.
+Our Book is more than just a digital library; it's a vibrant community of readers and writers sharing their love for literature. Whether you're a casual reader, a literary scholar, or an author looking to reach a wider audience, Our Book welcomes you to join our growing community.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
